@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fizzbuzz</title>
+</head>
+<body>
+    <h1>Fizzbuzz Logic Test</h1>
+    <p>Please press F12 to open the console</p>
+    <p>Please check my logic under the script</p>
+
+    <h2>Prompt</h2>
+        <ul>
+            <li>Write a program that prints the numbers from 1 to 100</li>
+            <li>For multiples of three print “Fizz” instead of the number</li>
+            <li>For the multiples of five print “Buzz” instead of the number</li>
+            <li>For numbers which are multiples of both three and five print “FizzBuzz" instead of the number</li>
+        </ul>
+    
+        <h3>Thanks Ray Batts For The Idea</h3>
+        <img src = "https://scontent-dfw5-2.xx.fbcdn.net/v/t1.0-9/49790864_10156567366440932_2215728668288745472_n.jpg?_nc_cat=104&_nc_sid=09cbfe&_nc_ohc=ueTNZoBrgBIAX_kiXgn&_nc_ht=scontent-dfw5-2.xx&oh=d95435039d7d2e967511339ff711adb9&oe=5F7FD731">
+
+    <script>
+        //start at 1
+        x=1;
+
+        //function to check if the number provided is divisible by 3
+        function checkDivBy3(d3){
+            let result = d3 / 3;
+            //checks if the returned number is a decimal and not 0
+            let isDecimal = (result - Math.floor(result)) !==0;
+            
+            //if it's not a decimal or a zero - means it's a whole number that divided the passed number by 3
+            if(!isDecimal)
+                return true;
+        }
+
+        //function to check if the number provided is divisible by 5
+        function checkDivBy5(d5){
+            let result = d5 / 5;
+            //checks if the returned number is a decimal and not 0
+            let isDecimal = (result - Math.floor(result)) !==0;
+            
+            //if it's not a decimal or a zero - means it's a whole number that divided the passed number by 5
+            if(!isDecimal)
+                return true;    
+        }
+        
+        //recursive function that prints the result
+        function printResult(r){
+            //calls function to check if divisible by 3 or 5
+            divBy3 = checkDivBy3(r);
+            divBy5 = checkDivBy5(r);
+            
+            //if divisible by both - Fizzbuzz, else divisible by 3 - Fizz, else divisible by 5 - Buzz
+            if(divBy3 === true && divBy5 === true){
+                console.log("FizzBuzz");
+                return;
+            }else if(divBy3===true){
+                console.log("Fizz");
+                return;
+            }else if(divBy5===true){
+                console.log("Buzz");
+                return;
+            }else{
+                console.log(r);
+                return;
+            }    
+        }
+
+        //run this loop while x is less than 100
+        do{
+            //print result to console log
+            printResult(x);
+            //go up to the next number
+            x++;
+        }while(x<101)
+    </script>
+    
+</body>
+</html>
